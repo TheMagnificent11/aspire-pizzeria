@@ -9,4 +9,6 @@ builder.AddProject<Projects.Aspire_Pizzeria_Web>("webfrontend")
     .WithReference(cache)
     .WithReference(apiService);
 
-builder.Build().Run();
+var app = builder.Build();
+
+await app.RunAsync();
