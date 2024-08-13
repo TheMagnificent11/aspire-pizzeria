@@ -1,3 +1,4 @@
+#pragma warning disable S125 // Sections of code should not be commented out
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.Extensions.DependencyInjection;
@@ -109,3 +110,4 @@ public static class Extensions
         return app;
     }
 }
+#pragma warning restore S125 // Sections of code should not be commented out
