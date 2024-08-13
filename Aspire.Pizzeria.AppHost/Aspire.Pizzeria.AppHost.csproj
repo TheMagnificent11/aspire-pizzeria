@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Aspire.Pizzeria.ApiService\Aspire.Pizzeria.ApiService.csproj" />
-    <ProjectReference Include="..\Aspire.Pizzeria.Web\Aspire.Pizzeria.Web.csproj" />
   </ItemGroup>
 
   <ItemGroup>
