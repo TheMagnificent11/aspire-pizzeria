@@ -1,6 +1,10 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
-builder.AddProject<Projects.Aspire_Pizzeria_PizzaStore>("pizza-store");
+var sqlServer = builder.AddSqlServer("sql-server");
+var sqlDatabase = sqlServer.AddDatabase("sql-database");
+
+builder.AddProject<Projects.Aspire_Pizzeria_PizzaStore>("pizza-store")
+    .WithReference(sqlDatabase);
 
 var app = builder.Build();
 

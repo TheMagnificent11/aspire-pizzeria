@@ -9,7 +9,21 @@ public class Order
 
         this.CustomerName = customerName;
         this.DeliveryAddress = deliveryAddress;
-        this.Pizzas = pizzas;
+
+        this.Pizzas = pizzas
+            .GroupBy(pizza => pizza.Id)
+            .Select(group => new OrderPizza
+            {
+                Pizza = group.First(),
+                Quantity = group.Count()
+            })
+            .ToList()
+            .AsReadOnly();
+    }
+
+    // EF Constructor
+    private Order()
+    {
     }
 
     public Guid Id { get; protected set; }
@@ -20,9 +34,9 @@ public class Order
 
     public string DeliveryAddress { get; protected set; }
 
-    public Pizza[] Pizzas { get; protected set; }
+    public IReadOnlyCollection<OrderPizza> Pizzas { get; protected set; }
 
-    public decimal TotalPrice => this.Pizzas.Sum(x => x.Price);
+    public decimal TotalPrice => this.Pizzas.Sum(x => x.Pizza.Price * x.Quantity);
 
     public bool IsPrepared { get; protected set; }
 
@@ -57,5 +71,11 @@ public class Order
 
         this.IsDelivered = true;
         this.DeliveryDate = DateTime.UtcNow;
+    }
+
+    public static class FieldLengths
+    {
+        public const int CustomerName = 100;
+        public const int DeliveryAddress = 200;
     }
 }

@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aspire.Pizzeria.PizzaStore"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspire.Pizzeria.Domain", "Aspire.Pizzeria.Domain\Aspire.Pizzeria.Domain.csproj", "{EBBDAFA1-63E4-45A0-9F7B-5CD5D2F03552}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspire.Pizzeria.Data", "Aspire.Pizzeria.Data\Aspire.Pizzeria.Data.csproj", "{B903FC3F-6C13-45FD-96E1-22E454CB7098}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{EBBDAFA1-63E4-45A0-9F7B-5CD5D2F03552}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBBDAFA1-63E4-45A0-9F7B-5CD5D2F03552}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBBDAFA1-63E4-45A0-9F7B-5CD5D2F03552}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B903FC3F-6C13-45FD-96E1-22E454CB7098}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B903FC3F-6C13-45FD-96E1-22E454CB7098}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B903FC3F-6C13-45FD-96E1-22E454CB7098}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B903FC3F-6C13-45FD-96E1-22E454CB7098}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
