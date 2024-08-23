@@ -7,12 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Aspire.Pizzeria.ApiService\Aspire.Pizzeria.ApiService.csproj" />
+    <PackageReference Include="Aspire.Hosting.AppHost" />
+    <PackageReference Include="Aspire.Hosting.Redis" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.Hosting.AppHost" />
-    <PackageReference Include="Aspire.Hosting.Redis" />
+    <ProjectReference Include="..\Aspire.Pizzeria.PizzaStore\Aspire.Pizzeria.PizzaStore.csproj" />
   </ItemGroup>
 
 </Project>
