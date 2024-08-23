@@ -1,13 +1,17 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <ItemGroup>
     <PackageReference Include="Aspire.Microsoft.EntityFrameworkCore.SqlServer" />
     <PackageReference Include="FastEndpoints" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Aspire.Pizzeria.Domain\Aspire.Pizzeria.Domain.csproj" />
+    <ProjectReference Include="..\Aspire.Pizzeria.Data\Aspire.Pizzeria.Data.csproj" />
     <ProjectReference Include="..\Aspire.Pizzeria.ServiceDefaults\Aspire.Pizzeria.ServiceDefaults.csproj" />
   </ItemGroup>
 

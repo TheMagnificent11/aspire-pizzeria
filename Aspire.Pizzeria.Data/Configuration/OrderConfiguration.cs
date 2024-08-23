@@ -10,22 +10,24 @@ internal class OrderConfiguration : IEntityTypeConfiguration<Order>
     {
         builder.HasKey(x => x.Id);
 
-        builder.Property(x => x.CustomerName)
+        builder
+            .Property(x => x.CustomerName)
             .IsRequired()
             .HasMaxLength(Order.FieldLengths.CustomerName);
 
-        builder.Property(x => x.DeliveryAddress)
+        builder
+            .Property(x => x.DeliveryAddress)
             .IsRequired()
             .HasMaxLength(Order.FieldLengths.DeliveryAddress);
 
         builder
             .HasMany(o => o.Pizzas)
             .WithOne(op => op.Order)
-            .HasForeignKey(op => op.OrderId);
+            .HasForeignKey(op => op.PizzaId);
 
         builder
             .HasMany(o => o.Pizzas)
             .WithOne(op => op.Order)
-            .HasForeignKey(op => op.PizzaId);
+            .HasForeignKey(op => op.OrderId);
     }
 }

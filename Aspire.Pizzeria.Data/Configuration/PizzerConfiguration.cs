@@ -17,5 +17,9 @@ internal class PizzerConfiguration : IEntityTypeConfiguration<Pizza>
         builder.Property(x => x.Description)
             .IsRequired()
             .HasMaxLength(Pizza.FieldLengths.Description);
+
+        builder.Property(x => x.Price)
+            .IsRequired()
+            .HasPrecision(5, 2);
     }
 }
