@@ -6,6 +6,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Aspire.Pizzeria.Domain\Aspire.Pizzeria.Domain.csproj" />
     <ProjectReference Include="..\Aspire.Pizzeria.ServiceDefaults\Aspire.Pizzeria.ServiceDefaults.csproj" />
   </ItemGroup>
 
