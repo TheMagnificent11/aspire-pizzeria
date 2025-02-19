@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Aspire.Pizzeria.Data\Aspire.Pizzeria.Data.csproj" />
+    <ProjectReference Include="..\Aspire.Pizzeria.PizzaStore.Contracts\Aspire.Pizzeria.PizzaStore.Contracts.csproj" />
     <ProjectReference Include="..\Aspire.Pizzeria.ServiceDefaults\Aspire.Pizzeria.ServiceDefaults.csproj" />
   </ItemGroup>
 
