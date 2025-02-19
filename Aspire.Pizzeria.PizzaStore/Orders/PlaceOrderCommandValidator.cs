@@ -1,9 +1,10 @@
 ﻿using Aspire.Pizzeria.Domain;
+using Aspire.Pizzeria.PizzaStore.Contracts;
 using FluentValidation;
 
 namespace Aspire.Pizzeria.PizzaStore.Orders;
 
-public class PlaceOrderCommandValidator : AbstractValidator<PlaceOrderCommand>
+public class PlaceOrderCommandValidator : AbstractValidator<PlacedOrderCommand>
 {
     public PlaceOrderCommandValidator()
     {

@@ -1,9 +1,10 @@
 ﻿using Aspire.Pizzeria.Data;
+using Aspire.Pizzeria.PizzaStore.Contracts;
 using FastEndpoints;
 
 namespace Aspire.Pizzeria.PizzaStore.Orders;
 
-public sealed class PlacedOrderEndpoint : Endpoint<PlaceOrderCommand, EmptyResponse>
+public sealed class PlacedOrderEndpoint : Endpoint<PlacedOrderCommand, EmptyResponse>
 {
     private readonly PizzeriaDbContext dbContext;
 
@@ -25,7 +26,7 @@ public sealed class PlacedOrderEndpoint : Endpoint<PlaceOrderCommand, EmptyRespo
         });
     }
 
-    public override async Task HandleAsync(PlaceOrderCommand req, CancellationToken ct)
+    public override async Task HandleAsync(PlacedOrderCommand req, CancellationToken ct)
     {
         var pizzas = Domain.Menu.Pizzas
             .Where(x => req.PizzaIds.Contains(x.Id))
