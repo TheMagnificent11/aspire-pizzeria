@@ -6,7 +6,7 @@ namespace Aspire.Pizzeria.PizzaStore.Orders;
 [SuppressMessage(
     "Info Code Smell",
     "S1133:Deprecated code should be removed",
-    Justification = "Will remove in a future relase after consumers have upgraded")]
+    Justification = "Will remove in a future release after consumers have upgraded")]
 [Obsolete(
     "This version of the request is deprecated. Please use OrderPizzaRequestV2Validator instead.",
     error: false)]
