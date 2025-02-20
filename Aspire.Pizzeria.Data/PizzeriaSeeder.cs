@@ -11,16 +11,16 @@ public sealed class PizzeriaSeeder
         this.dbContext = dbContext;
     }
 
-    public async Task SeedAsync()
+    public async Task SeedAsync(CancellationToken cancellationToken)
     {
-        await this.dbContext.Database.EnsureCreatedAsync();
+        await this.dbContext.Database.EnsureCreatedAsync(cancellationToken);
 
         var pizzas = Menu.Pizzas;
         var hasChanges = false;
 
         foreach (var item in pizzas)
         {
-            var existing = await this.dbContext.Pizzas.FindAsync(item.Id);
+            var existing = await this.dbContext.Pizzas.FindAsync(item.Id, cancellationToken);
 
             if (existing == null)
             {
@@ -34,6 +34,6 @@ public sealed class PizzeriaSeeder
             return;
         }
 
-        await this.dbContext.SaveChangesAsync();
+        await this.dbContext.SaveChangesAsync(cancellationToken);
     }
 }

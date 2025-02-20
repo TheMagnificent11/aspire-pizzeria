@@ -26,13 +26,36 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+using (var cancellationTokenSource = new CancellationTokenSource(TimeSpan.FromMinutes(1)))
 using (var serviceScope = app.Services.CreateScope())
 {
     var dbContext = serviceScope.ServiceProvider.GetRequiredService<PizzeriaDbContext>();
-    await dbContext.Database.MigrateAsync();
 
-    var seeder = serviceScope.ServiceProvider.GetRequiredService<PizzeriaSeeder>();
-    await seeder.SeedAsync();
+    while (!cancellationTokenSource.Token.IsCancellationRequested)
+    {
+        try
+        {
+            var canConnect = await dbContext.Database.CanConnectAsync(cancellationTokenSource.Token);
+            if (!canConnect)
+            {
+                await Task.Delay(TimeSpan.FromSeconds(5), cancellationTokenSource.Token);
+                continue;
+            }
+
+            await dbContext.Database.MigrateAsync(cancellationTokenSource.Token);
+
+            var seeder = serviceScope.ServiceProvider.GetRequiredService<PizzeriaSeeder>();
+            await seeder.SeedAsync(cancellationTokenSource.Token);
+
+            break;
+        }
+        catch (Exception ex)
+        {
+            app.Logger.LogError(ex, "Failed to migrate database. Retrying in 5 seconds...");
+
+            await Task.Delay(TimeSpan.FromSeconds(5), cancellationTokenSource.Token);
+        }
+    }
 }
 
 await app.RunAsync();
