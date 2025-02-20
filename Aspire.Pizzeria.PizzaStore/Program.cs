@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
 
-builder.AddNpgsqlDbContext<PizzeriaDbContext>("database");
+builder.AddNpgsqlDbContext<PizzeriaDbContext>("pizza-store-database");
 builder.Services.AddTransient<PizzeriaSeeder>();
 
 builder.Services.AddFastEndpoints();
