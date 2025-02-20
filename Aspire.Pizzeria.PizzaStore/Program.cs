@@ -26,7 +26,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-using (var cancellationTokenSource = new CancellationTokenSource(TimeSpan.FromMinutes(1)))
+using (var cancellationTokenSource = new CancellationTokenSource(TimeSpan.FromMinutes(3)))
 using (var serviceScope = app.Services.CreateScope())
 {
     var dbContext = serviceScope.ServiceProvider.GetRequiredService<PizzeriaDbContext>();
