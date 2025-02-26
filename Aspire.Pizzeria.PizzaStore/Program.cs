@@ -1,6 +1,8 @@
+using System.Net.Sockets;
 using Aspire.Pizzeria.Data;
 using FastEndpoints;
 using Microsoft.EntityFrameworkCore;
+using Npgsql;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,16 +32,21 @@ using (var cancellationTokenSource = new CancellationTokenSource(TimeSpan.FromMi
 using (var serviceScope = app.Services.CreateScope())
 {
     var dbContext = serviceScope.ServiceProvider.GetRequiredService<PizzeriaDbContext>();
+    var connectionString = dbContext.Database.GetConnectionString();
+    var dbBuilder = new NpgsqlConnectionStringBuilder(connectionString);
+
+    if (string.IsNullOrWhiteSpace(dbBuilder?.Host))
+    {
+        throw new InvalidOperationException("Failed to parse connection string.");
+    }
 
     while (!cancellationTokenSource.Token.IsCancellationRequested)
     {
         try
         {
-            var canConnect = await dbContext.Database.CanConnectAsync(cancellationTokenSource.Token);
-            if (!canConnect)
+            using (var tcpClient = new TcpClient())
             {
-                await Task.Delay(TimeSpan.FromSeconds(5), cancellationTokenSource.Token);
-                continue;
+                await tcpClient.ConnectAsync(dbBuilder.Host, dbBuilder.Port);
             }
 
             await dbContext.Database.MigrateAsync(cancellationTokenSource.Token);
