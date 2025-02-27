@@ -2,7 +2,7 @@
 
 public class Pizza
 {
-    public Pizza(int id, string name, string description, decimal price)
+    internal Pizza(int id, string name, string description, decimal price)
     {
         this.Id = id;
         this.Name = name;
