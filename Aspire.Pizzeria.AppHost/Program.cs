@@ -1,13 +1,12 @@
+using Aspire.Pizzeria.Common;
+
 var builder = DistributedApplication.CreateBuilder(args);
 
-var cache = builder.AddRedis("cache");
+var databaseServer = builder.AddPostgres(ServiceNames.DatabaseServer);
+var pizzaStoreDatabase = databaseServer.AddDatabase(ServiceNames.PizzaStoreDatabase);
 
-var apiService = builder.AddProject<Projects.Aspire_Pizzeria_ApiService>("apiservice");
-
-builder.AddProject<Projects.Aspire_Pizzeria_Web>("webfrontend")
-    .WithExternalHttpEndpoints()
-    .WithReference(cache)
-    .WithReference(apiService);
+builder.AddProject<Projects.Aspire_Pizzeria_PizzaStore>(ServiceNames.PizzaStore)
+    .WithReference(pizzaStoreDatabase);
 
 var app = builder.Build();
 

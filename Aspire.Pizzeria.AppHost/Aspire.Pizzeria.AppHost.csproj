@@ -1,4 +1,6 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Sdk Name="Aspire.AppHost.Sdk" Version="9.0.0" />
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -7,13 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Aspire.Pizzeria.ApiService\Aspire.Pizzeria.ApiService.csproj" />
-    <ProjectReference Include="..\Aspire.Pizzeria.Web\Aspire.Pizzeria.Web.csproj" />
+    <PackageReference Include="Aspire.Hosting.AppHost" />
+    <PackageReference Include="Aspire.Hosting.Redis" />
+    <PackageReference Include="Aspire.Hosting.PostgreSQL" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.Hosting.AppHost" />
-    <PackageReference Include="Aspire.Hosting.Redis" />
+    <ProjectReference Include="..\Aspire.Pizzeria.Common\Aspire.Pizzeria.Common.csproj" IsAspireProjectResource="false" />
+    <ProjectReference Include="..\Aspire.Pizzeria.PizzaStore\Aspire.Pizzeria.PizzaStore.csproj" />
   </ItemGroup>
 
 </Project>
