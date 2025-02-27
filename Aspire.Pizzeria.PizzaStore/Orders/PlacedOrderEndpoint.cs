@@ -7,10 +7,12 @@ namespace Aspire.Pizzeria.PizzaStore.Orders;
 public sealed class PlacedOrderEndpoint : Endpoint<PlacedOrderCommand, EmptyResponse>
 {
     private readonly PizzeriaDbContext dbContext;
+    private readonly ILogger<PlacedOrderEndpoint> logger;
 
-    public PlacedOrderEndpoint(PizzeriaDbContext dbContext)
+    public PlacedOrderEndpoint(PizzeriaDbContext dbContext, ILogger<PlacedOrderEndpoint> logger)
     {
         this.dbContext = dbContext;
+        this.logger = logger;
     }
 
     public override void Configure()
@@ -37,5 +39,7 @@ public sealed class PlacedOrderEndpoint : Endpoint<PlacedOrderCommand, EmptyResp
         this.dbContext.Orders.Add(order);
 
         await this.dbContext.SaveChangesAsync(ct);
+
+        this.logger.LogInformation("Order {OrderId} placed", order.Id);
     }
 }
