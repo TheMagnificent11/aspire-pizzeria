@@ -14,7 +14,8 @@ public class Order
             .GroupBy(pizza => pizza.Id)
             .Select(group => new OrderPizza
             {
-                Pizza = group.First(),
+                PizzaId = group.Key,
+                OrderId = this.Id,
                 Quantity = group.Count()
             })
             .ToList()
