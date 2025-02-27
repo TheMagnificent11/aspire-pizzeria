@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Aspire.Pizzeria.Common\Aspire.Pizzeria.Common.csproj" IsAspireProjectResource="false" />
     <ProjectReference Include="..\Aspire.Pizzeria.PizzaStore\Aspire.Pizzeria.PizzaStore.csproj" />
   </ItemGroup>
 

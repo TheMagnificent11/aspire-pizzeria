@@ -1,9 +1,11 @@
+using Aspire.Pizzeria.Common;
+
 var builder = DistributedApplication.CreateBuilder(args);
 
-var databaseServer = builder.AddPostgres("database-server");
-var pizzaStoreDatabase = databaseServer.AddDatabase("pizza-store-database");
+var databaseServer = builder.AddPostgres(ServiceNames.DatabaseServer);
+var pizzaStoreDatabase = databaseServer.AddDatabase(ServiceNames.PizzaStoreDatabase);
 
-builder.AddProject<Projects.Aspire_Pizzeria_PizzaStore>("pizza-store")
+builder.AddProject<Projects.Aspire_Pizzeria_PizzaStore>(ServiceNames.PizzaStore)
     .WithReference(pizzaStoreDatabase);
 
 var app = builder.Build();
