@@ -1,4 +1,6 @@
-﻿namespace Aspire.Pizzeria.Domain;
+﻿using CSharpFunctionalExtensions;
+
+namespace Aspire.Pizzeria.Domain;
 
 public class Order
 {
@@ -58,20 +60,22 @@ public class Order
         this.PreparationDate = DateTime.UtcNow;
     }
 
-    public void PizzasDelivered()
+    public Result PizzasDelivered()
     {
         if (!this.IsPrepared)
         {
-            throw new InvalidOperationException("Cannot deliver an order that is not prepared.");
+            return Result.Failure("Cannot deliver an order that is not prepared.");
         }
 
         if (this.IsDelivered)
         {
-            return;
+            return Result.Success("Pizza already delivered.");
         }
 
         this.IsDelivered = true;
         this.DeliveryDate = DateTime.UtcNow;
+
+        return Result.Success();
     }
 
     public static class FieldLengths

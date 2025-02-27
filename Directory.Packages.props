@@ -8,6 +8,7 @@
     <PackageVersion Include="Aspire.Hosting.PostgreSQL" Version="9.1.0" />
     <PackageVersion Include="Aspire.Hosting.Redis" Version="9.1.0" />
     <PackageVersion Include="Aspire.Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.1.0" />
+    <PackageVersion Include="CSharpFunctionalExtensions" Version="3.5.1" />
     <PackageVersion Include="FastEndpoints" Version="5.34.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="9.0.0" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.2" />
