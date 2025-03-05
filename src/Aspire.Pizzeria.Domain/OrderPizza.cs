@@ -13,4 +13,20 @@ public class OrderPizza
     public Pizza Pizza { get; internal set; }
 
     public int Quantity { get; internal set; }
+
+    internal static OrderPizza CreateForOrder(Order order, Pizza pizza)
+    {
+        return new OrderPizza
+        {
+            Id = Guid.NewGuid(),
+            OrderId = order.Id,
+            PizzaId = pizza.Id,
+            Quantity = 1
+        };
+    }
+
+    internal void IncreaseQuantity()
+    {
+        this.Quantity++;
+    }
 }

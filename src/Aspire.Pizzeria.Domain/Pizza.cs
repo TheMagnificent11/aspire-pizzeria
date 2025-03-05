@@ -1,4 +1,6 @@
-﻿namespace Aspire.Pizzeria.Domain;
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace Aspire.Pizzeria.Domain;
 
 public class Pizza
 {
@@ -10,7 +12,7 @@ public class Pizza
         this.Price = price;
     }
 
-    // EF Constructor
+    [ExcludeFromCodeCoverage(Justification = "Only used by EF")]
     private Pizza()
     {
     }

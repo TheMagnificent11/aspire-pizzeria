@@ -182,3 +182,6 @@ dotnet_diagnostic.IDE0090.severity = warning
 
 # IDE0290: Use primary constructor
 dotnet_diagnostic.IDE0290.severity = none
+
+# FAA0002: Replace Xunit assertion with Fluent Assertions equivalent
+dotnet_diagnostic.FAA0002.severity = none

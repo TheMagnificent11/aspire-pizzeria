@@ -2,10 +2,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aspire.Pizzeria.AppHost", "Aspire.Pizzeria.AppHost\Aspire.Pizzeria.AppHost.csproj", "{4CB40FD4-5425-4AD1-9178-7D43D9BE9796}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aspire.Pizzeria.ServiceDefaults", "Aspire.Pizzeria.ServiceDefaults\Aspire.Pizzeria.ServiceDefaults.csproj", "{3C5515CA-D0A6-4634-AC3B-AF8CC2A466C7}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A3DB811C-9488-419B-A803-8F6EA7E6CC43}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
@@ -15,15 +11,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		spelling-exclusion.txt = spelling-exclusion.txt
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aspire.Pizzeria.PizzaStore", "Aspire.Pizzeria.PizzaStore\Aspire.Pizzeria.PizzaStore.csproj", "{2A0D56B0-96FA-438B-9C5B-7552D59ED53A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aspire.Pizzeria.AppHost", "src\Aspire.Pizzeria.AppHost\Aspire.Pizzeria.AppHost.csproj", "{4CB40FD4-5425-4AD1-9178-7D43D9BE9796}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspire.Pizzeria.Domain", "Aspire.Pizzeria.Domain\Aspire.Pizzeria.Domain.csproj", "{EBBDAFA1-63E4-45A0-9F7B-5CD5D2F03552}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aspire.Pizzeria.ServiceDefaults", "src\Aspire.Pizzeria.ServiceDefaults\Aspire.Pizzeria.ServiceDefaults.csproj", "{3C5515CA-D0A6-4634-AC3B-AF8CC2A466C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspire.Pizzeria.Data", "Aspire.Pizzeria.Data\Aspire.Pizzeria.Data.csproj", "{B903FC3F-6C13-45FD-96E1-22E454CB7098}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aspire.Pizzeria.PizzaStore", "src\Aspire.Pizzeria.PizzaStore\Aspire.Pizzeria.PizzaStore.csproj", "{2A0D56B0-96FA-438B-9C5B-7552D59ED53A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspire.Pizzeria.PizzaStore.Contracts", "Aspire.Pizzeria.PizzaStore.Contracts\Aspire.Pizzeria.PizzaStore.Contracts.csproj", "{44E0CC25-FEF0-4117-ACAA-5C29612EDEF4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspire.Pizzeria.Domain", "src\Aspire.Pizzeria.Domain\Aspire.Pizzeria.Domain.csproj", "{EBBDAFA1-63E4-45A0-9F7B-5CD5D2F03552}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspire.Pizzeria.Common", "Aspire.Pizzeria.Common\Aspire.Pizzeria.Common.csproj", "{3C87EDFE-F14F-4333-A282-7677B9FAADDB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspire.Pizzeria.Data", "src\Aspire.Pizzeria.Data\Aspire.Pizzeria.Data.csproj", "{B903FC3F-6C13-45FD-96E1-22E454CB7098}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspire.Pizzeria.PizzaStore.Contracts", "src\Aspire.Pizzeria.PizzaStore.Contracts\Aspire.Pizzeria.PizzaStore.Contracts.csproj", "{44E0CC25-FEF0-4117-ACAA-5C29612EDEF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspire.Pizzeria.Common", "src\Aspire.Pizzeria.Common\Aspire.Pizzeria.Common.csproj", "{3C87EDFE-F14F-4333-A282-7677B9FAADDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspire.Pizzeria.Domain.Tests", "tests\Aspire.Pizzeria.Domain.Tests\Aspire.Pizzeria.Domain.Tests.csproj", "{84268E2E-E76A-4328-875C-B16BC5DD11CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +61,10 @@ Global
 		{3C87EDFE-F14F-4333-A282-7677B9FAADDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C87EDFE-F14F-4333-A282-7677B9FAADDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C87EDFE-F14F-4333-A282-7677B9FAADDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84268E2E-E76A-4328-875C-B16BC5DD11CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84268E2E-E76A-4328-875C-B16BC5DD11CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84268E2E-E76A-4328-875C-B16BC5DD11CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84268E2E-E76A-4328-875C-B16BC5DD11CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

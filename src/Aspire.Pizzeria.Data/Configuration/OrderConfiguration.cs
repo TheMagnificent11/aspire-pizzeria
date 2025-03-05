@@ -11,13 +11,12 @@ internal class OrderConfiguration : IEntityTypeConfiguration<Order>
         builder.HasKey(x => x.Id);
 
         builder
-            .Property(x => x.CustomerName)
+            .Property(x => x.UserId)
             .IsRequired()
-            .HasMaxLength(Order.FieldLengths.CustomerName);
+            .HasMaxLength(Order.FieldLengths.UserId);
 
         builder
             .Property(x => x.DeliveryAddress)
-            .IsRequired()
             .HasMaxLength(Order.FieldLengths.DeliveryAddress);
 
         builder
